@@ -1,37 +1,53 @@
-# Preprocesamiento + Modelado/Evaluación/Predicción para otorgamiento de prestamos en R.
-Clase: Fundamentos de datos.
+# Mortgage Approval Modeling
+Class: Data Fundamentals
 
-Problema: 
-Los datos de la base hipoteca.xls contiene datos de 2380 individuos que solicitaron una hipoteca.
-La variable que nos interesa modelar es “deny”, un indicador de si la solicitud de hipoteca del solicitante ha sido aceptada (deny = 0) o denegada (deny = 1).
-Los datos registrados dan información acerca de las siguientes variables:
-- pirat: Relación entre gastos e ingresos del individuo.
-- hirat: Relación entre gastos e ingresos de la vivienda.
-- lvrat: Relación préstamo/valor valor del bien a hipotecar.
-- Unemp: Tasa de desempleo en la industria de los solicitantes.
-- mhist: puntaje de crédito hipotecario de 1 a 4 (un valor bajo es un buen puntaje)
-- Phist: Indicador: ¿Mal historial de crédito público?
-- Insurance: Indicador: ¿Se le negó el seguro al individuo?
-- Single: Indicador: ¿El individuo es soltero?
-- Selfemp: Indicador: ¿Es el individuo un trabajador autónomo?
+This repository contains all the materials and analysis for a class on Data Fundamentals. It explores the development of predictive models for mortgage approvals using the hipoteca.xls dataset. Key methodologies include:
 
-1.	Analice las variables disponibles para incluirlas de modo adecuado.
-2.	Se quiere ajustar modelos de regresión logística que permita explicar y predecir el otorgamiento de hipoteca a partir de la información disponible. Para esto, antes que nada, separar los datos en conjuntos de entrenamiento y validación en forma aleatoria en 70/30. Indique que cantidad de casos quedaron para cada ambiente.
-3.	Considere varios modelos posibles y compárelos adecuadamente en el conjunto de entrenamiento:
--	Un modelo con todas las variables disponibles 
--	Un modelo con todas las variables que resultaron significativas al 5%
--	Un modelo seleccionando con un método por pasos.
+Data preprocessing and exploration.
+Logistic regression (with variable selection and performance evaluation).
+Alternative classification models like Naive Bayes and SVM.
+Model evaluation using metrics such as AUC, ROC curves, and classification tables.
+The repository includes:
 
-4.	Para el modelo elegido en el punto anterior: 
-a)	¿Es significativo el modelo?
-b)	¿Son todas las variables significativas para el modelo? 
-c)	Considere un test de bondad de ajuste: ¿qué conclusión se obtiene?
-d)	Elija uno de los coeficientes del modelo elegido e interprételo en términos de los odds.
-e)	Indique valores de pseudos R2 
-f)	Indique AUC y grafique la curva ROC en el conjunto de test.
-g)	Encuentre la tabla de clasificación con un punto de corte de 0.5. ¿cuál es el porcentaje de casos bien clasificados? 
-h)	¿Puede mejorar la clasificación variando el punto de corte? Proponga un punto de corte.
-i)	Según el punto de corte dado en el ítem anterior, ¿cómo fue clasificado el caso Nº 100? ¿Fue clasificado correctamente? ¿Con qué probabilidad fue clasificado?
-5.	Ajuste una red Naive.
-6.	Ajuste un modelo svm.
-7.	Finalmente, evalúe los modelos considerados en los puntos 4,5 y 6. ¿Cuál es el que predice mejor la clase positiva?
+Detailed Jupyter notebooks for step-by-step analysis.
+Documentation on methodology and results.
+
+- Problem:
+The dataset hipoteca.xls contains information on 2,380 individuals who applied for a mortgage. The target variable is “deny”, an indicator of whether the applicant’s mortgage request was approved (deny = 0) or denied (deny = 1). The dataset provides information on the following variables:
+
+pirat: Ratio of the individual’s expenses to income.
+hirat: Ratio of the household’s expenses to income.
+lvrat: Loan-to-value ratio of the mortgaged asset.
+Unemp: Unemployment rate in the applicant’s industry.
+mhist: Mortgage credit score (1 to 4; lower scores indicate better credit).
+Phist: Indicator: Does the applicant have a bad public credit history?
+Insurance: Indicator: Was the applicant denied insurance?
+Single: Indicator: Is the applicant single?
+Selfemp: Indicator: Is the applicant self-employed?
+Tasks:
+Analyze the available variables to determine their suitability for inclusion in the model.
+
+Develop logistic regression models to explain and predict mortgage approvals using the provided information. Follow these steps:
+
+Randomly split the data into training (70%) and validation (30%) sets. Specify the number of cases in each split.
+Consider and compare several models using the training set:
+A model with all available variables.
+A model including only variables significant at the 5% level.
+A model selected using a stepwise selection method.
+For the model selected in the previous step, answer the following:
+a) Is the model significant overall?
+b) Are all variables significant within the model?
+c) Conduct a goodness-of-fit test. What conclusions can be drawn?
+d) Choose one coefficient from the model and interpret it in terms of odds.
+e) Report pseudo R² values.
+f) Compute the AUC and plot the ROC curve using the test set.
+g) Create a classification table with a 0.5 threshold. What percentage of cases are correctly classified?
+h) Can classification performance be improved by adjusting the threshold? Propose an alternative threshold.
+i) Using the threshold from the previous point, evaluate case #100. Was it classified correctly? With what probability?
+
+Train a Naive Bayes model.
+
+Train a SVM model.
+
+Finally, evaluate the models considered in steps 4, 5, and 6. Which model performs best at predicting the positive class?
+
